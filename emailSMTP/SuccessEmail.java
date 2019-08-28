@@ -10,7 +10,7 @@ public class SuccessEmail {
 
 	    public static void main(String[] args) {
 
-	    	public void send(String a, String b, String c) {   
+	    	public void send(String yourEmail, String myPassword, String sendTo) {   
 
 	            Properties prop = new Properties();
 	    		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -21,20 +21,20 @@ public class SuccessEmail {
 	            Session session = Session.getInstance(prop,
 	                    new javax.mail.Authenticator() {
 	                        protected PasswordAuthentication getPasswordAuthentication() {
-	                            return new PasswordAuthentication(a, b);//username, password
+	                            return new PasswordAuthentication(yourEmail, myPassword);//username, password
 	                        }
 	                    });
 
 	            try {
 
 	                Message message = new MimeMessage(session);
-	                message.setFrom(new InternetAddress(a));//my email
+	                message.setFrom(new InternetAddress(yourEmail));//my email
 	                message.setRecipients(
 	                        Message.RecipientType.TO,
-	                        InternetAddress.parse(c)//your email
+	                        InternetAddress.parse(sendTo)//your email
 	                );
 	                message.setSubject("Testing Gmail TLS");
-	                message.setText("Dear" + c
+	                message.setText("Dear" + sendTo
 	                        + "\n\n Thank you for registering with ABC job portal.!"
 	                		+ "\n We are delighted to have you with us and hope to provide the services"
 	                        + "\n needed in the website."
