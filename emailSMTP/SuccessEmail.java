@@ -10,7 +10,7 @@ public class SuccessEmail {
 
 	    public static void main(String[] args) {
 
-	    	public void send(String a, String b, String c) {   
+	    	public void send(String emailFrom, String password, String emailToSendTo) {   
 
 	            Properties prop = new Properties();
 	    		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -21,17 +21,17 @@ public class SuccessEmail {
 	            Session session = Session.getInstance(prop,
 	                    new javax.mail.Authenticator() {
 	                        protected PasswordAuthentication getPasswordAuthentication() {
-	                            return new PasswordAuthentication(a, b);//username, password
+	                            return new PasswordAuthentication(a, b);//your email, password
 	                        }
 	                    });
 
 	            try {
 
 	                Message message = new MimeMessage(session);
-	                message.setFrom(new InternetAddress(a));//my email
+	                message.setFrom(new InternetAddress(emailFrom));//email to send from
 	                message.setRecipients(
 	                        Message.RecipientType.TO,
-	                        InternetAddress.parse(c)//your email
+	                        InternetAddress.parse(emailToSendTo)//email to send to
 	                );
 	                message.setSubject("Testing Gmail TLS");
 	                message.setText("Dear" + c
