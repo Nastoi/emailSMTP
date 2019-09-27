@@ -1,6 +1,6 @@
 This is a simple mail sender that i use in my project.
 
-Project environment i am using: eclipse, jdk 8, maven, struts framework, javax.mail.jar
+Project environment i am using: eclipse, jdk 8, dynamic web project, struts framework, javax.mail.jar
 
 Requirements: 
 1)sender has to be using a gmail account.
